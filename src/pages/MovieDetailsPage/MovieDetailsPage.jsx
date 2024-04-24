@@ -21,11 +21,8 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
 
-  const buildLinkClass = to => {
-    return clsx(
-      style.btnLink,
-      location.pathname === to && style.moreInfoLinkActive
-    );
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(style.btnLink, isActive && style.moreInfoLinkActive);
   };
 
   useEffect(() => {
@@ -104,18 +101,10 @@ const MovieDetailsPage = () => {
             </div>
           </div>
           <nav className={style.moreInfo}>
-            <NavLink
-              className={buildLinkClass(`/movies/${id}/cast`)}
-              to={'cast'}
-              state={location.state}
-            >
+            <NavLink className={buildLinkClass} to={'cast'}>
               Cast
             </NavLink>
-            <NavLink
-              className={buildLinkClass(`/movies/${id}/reviews`)}
-              to={'reviews'}
-              state={location.state}
-            >
+            <NavLink className={buildLinkClass} to={'reviews'}>
               Reviews
             </NavLink>
           </nav>
