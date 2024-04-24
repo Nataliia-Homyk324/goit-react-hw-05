@@ -1,12 +1,10 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import style from './Navigation.module.css';
 import clsx from 'clsx';
 
 const Navigation = () => {
-  const location = useLocation();
-
-  const buildLinkClass = to => {
-    return clsx(style.navLink, location.pathname === to && style.navLinkActive);
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(style.navLink, isActive && style.navLinkActive);
   };
 
   return (
