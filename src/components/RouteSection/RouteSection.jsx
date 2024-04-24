@@ -14,7 +14,7 @@ const MovieReviews = lazy(() => import('../MovieReviews/MovieReviews'));
 
 const RouteSection = () => {
   return (
-    <Suspense>
+    <Suspense fallback={<div>Please wait loading page...</div>}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />

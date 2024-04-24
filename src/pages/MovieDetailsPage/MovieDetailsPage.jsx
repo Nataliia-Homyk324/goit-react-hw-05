@@ -18,6 +18,7 @@ const MovieDetailsPage = () => {
   const { id } = useParams();
   const [film, setFilm] = useState(null);
   const [loading, setLoading] = useState(false);
+
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
 
@@ -103,7 +104,7 @@ const MovieDetailsPage = () => {
               Reviews
             </NavLink>
           </nav>
-          <Suspense>
+          <Suspense fallback={<div>Please wait loading page...</div>}>
             <Outlet />
           </Suspense>
         </div>
