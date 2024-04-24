@@ -1,9 +1,10 @@
 import { format } from 'date-fns';
 import style from './MovieItem.module.css';
+import { Link } from 'react-router-dom';
 import notFoundImg from '../../assets/img/image-not-found.jpg';
 
 const MovieItem = ({
-  dataFilm: { poster_path, title, release_date, vote_average },
+  dataFilm: { id, poster_path, title, release_date, vote_average },
 }) => {
   const formatDate = date => {
     if (!date || isNaN(new Date(date))) {
@@ -14,7 +15,7 @@ const MovieItem = ({
   const urlImg = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   const voteAverage = Number(vote_average).toFixed(2);
   return (
-    <div>
+    <Link to={`/movies/${id}`}>
       <img
         className={style.movieImg}
         src={poster_path ? urlImg : notFoundImg}
@@ -31,7 +32,7 @@ const MovieItem = ({
           <p className={style.trandingText}>Rating: {voteAverage}</p>
         )}
       </div>
-    </div>
+    </Link>
   );
 };
 
