@@ -79,11 +79,6 @@ const MovieDetailsPage = () => {
                     <span className={style.spanAccent}>User Score:</span>{' '}
                     {userScore}&#37;
                   </p>{' '}
-                  <span
-                    className={
-                      userScore < 60 ? style.iconSpilled : style.iconUpright
-                    }
-                  ></span>
                 </div>
               )}
               <h3 className={style.movieDetailsTitleFilm}>Overview</h3>
