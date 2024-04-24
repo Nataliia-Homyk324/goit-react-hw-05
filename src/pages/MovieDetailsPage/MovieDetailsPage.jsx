@@ -48,7 +48,7 @@ const MovieDetailsPage = () => {
     <section className={style.movieDetails}>
       <Link to={backLinkHref}>
         <button className={style.btnLink}>
-          <GoArrowLeft size="20" /> Back
+          <GoArrowLeft size="20" /> Go back
         </button>
       </Link>
       {loading && <Loader />}

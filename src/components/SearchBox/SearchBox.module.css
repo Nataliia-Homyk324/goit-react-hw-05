@@ -4,7 +4,7 @@
 }
 
 .inputSearch {
-    width: 250px;
+    width: 320px;
     border-radius: 7px;
     border: 1px solid rgb(0, 70, 182);
     outline: transparent;
@@ -17,8 +17,8 @@
 }
 
 .btnSearch {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     background-color: rgb(0, 70, 182);
     border: transparent;
     color: #fff;
@@ -36,8 +36,3 @@
     background-color: #5c6172;
 }
 
-@media screen and (min-width: 768px) {
-    .inputSearch {
-        width: 320px;
-    }
-}

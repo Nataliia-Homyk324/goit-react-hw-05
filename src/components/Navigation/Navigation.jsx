@@ -10,10 +10,10 @@ const Navigation = () => {
   return (
     <header className={style.container}>
       <nav className={style.headerNav}>
-        <NavLink className={buildLinkClass('/')} to="/">
+        <NavLink className={buildLinkClass} to="/">
           Home
         </NavLink>
-        <NavLink className={buildLinkClass('/movies')} to="/movies">
+        <NavLink className={buildLinkClass} to="/movies">
           Movies
         </NavLink>
       </nav>
