@@ -1,11 +1,12 @@
 import { format } from 'date-fns';
 import style from './MovieItem.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import notFoundImg from '../../assets/img/image-not-found.jpg';
 
 const MovieItem = ({
   dataFilm: { id, poster_path, title, release_date, vote_average },
 }) => {
+  const location = useLocation();
   const formatDate = date => {
     if (!date || isNaN(new Date(date))) {
       return 'Unknown date';
@@ -14,8 +15,9 @@ const MovieItem = ({
   };
   const urlImg = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   const voteAverage = Number(vote_average).toFixed(2);
+
   return (
-    <Link to={`/movies/${id}`}>
+    <Link to={`/movies/${id}`} state={{ from: location }}>
       <img
         className={style.movieImg}
         src={poster_path ? urlImg : notFoundImg}
