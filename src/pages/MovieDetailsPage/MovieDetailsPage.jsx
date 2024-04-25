@@ -6,7 +6,7 @@ import {
   useParams,
 } from 'react-router-dom';
 import { getFilmsDetails } from '../../js/films-api.js';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { format } from 'date-fns';
 import { GoArrowLeft } from 'react-icons/go';
 import Loader from '../../components/Loader/Loader.jsx';
@@ -20,7 +20,7 @@ const MovieDetailsPage = () => {
   const [loading, setLoading] = useState(false);
 
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkHref = useRef(location.state?.from ?? '/');
 
   const buildLinkClass = ({ isActive }) => {
     return clsx(style.btnLink, isActive && style.moreInfoLinkActive);
@@ -47,10 +47,8 @@ const MovieDetailsPage = () => {
   const userScore = film ? (Number(film.vote_average) * 10).toFixed(0) : null;
   return (
     <section className={style.movieDetails}>
-      <Link to={backLinkHref}>
-        <button className={style.btnLink}>
-          <GoArrowLeft size="20" /> Go back
-        </button>
+      <Link to={backLinkHref.current} className={style.btnLink}>
+        <GoArrowLeft size="20" /> Go back
       </Link>
       {loading && <Loader />}
       {film && (
